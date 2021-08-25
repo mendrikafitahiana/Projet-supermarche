@@ -1,0 +1,43 @@
+Bases:
+-categorie(id,nom)
+-caisse(id,nom)
+-utilisateur(id,nom,email,mdp)
+-produit(id,designation,prix,idcate)
+-achat(id,dateAchat,idCaisse)
+-achatProduit(id,idAchat,idProd,qte)
+-vente(id,dateVente,idCaisse,idAchat)
+-venteProduit(id,idVente,idProd,qte)
+-image(id,idProd,nom)
+
+insert into categorie values(null,'nourriture'),
+(null,'fourniture'),
+(null,'accessoire');
+
+insert into produit values(null,'tomate',2000,1),
+(null,'haricot vert',1500,1),
+(null,'mortadelle',4000,1),
+(null,'pain',1000,1),
+(null,'pomme',5000,1);
+
+insert into produit values(null,'stylo',900,2),
+(null,'cahier',10000,2),
+(null,'gomme',1000,2),
+(null,'classeur',20000,2),
+(null,'bloc note',4000,2);
+
+
+insert into produit values(null,'ceinture',15000,3),
+(null,'collier',8000,3),
+(null,'monture',12000,3),
+(null,'souris',14000,3),
+(null,'cable',6000,3);
+
+
+insert into caisse values(null,'caisse 1'),(null,'caisse 2');
+
+
+Fonctionnalités :
+	- Back : 
+		* Login et Mdp 
+		* CRUD Produits
+		* Affichage catégorie + produits par categorie
