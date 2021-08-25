@@ -13,6 +13,19 @@ class Produit extends CI_Model{
 		return $produit;
 	}
 
+	public function selectWithId($id){
+
+		$sql = "select * from produit where id = %s";
+		$sql = sprintf($sql,$this->db->escape($id));
+		$query = $this->db->query($sql);
+		$produit = array();
+		foreach ($query->result_array() as $key) {
+			$produit[] = $key;
+		}
+		return $produit;
+
+	}
+
 	public function updateProduct($designation,$prix,$idCate,$id){
 
 		$sql = "update produit set designation = %s, prix = %s, idCate = %s where id = %s";
@@ -25,6 +38,13 @@ class Produit extends CI_Model{
 		$sql = "insert into produit values(null,%s,%s,%s)";
 		$sql = sprintf($sql,$this->db->escape($designation),$this->db->escape($prix),$this->db->escape($idCate));
 		
+		$query = $this->db->query($sql);
+	}
+
+	public function deleteProduct($id){
+		$sql = "delete from produit where id = %s";
+		$sql = sprintf($sql,$this->db->escape($id));
+
 		$query = $this->db->query($sql);
 	}
 }

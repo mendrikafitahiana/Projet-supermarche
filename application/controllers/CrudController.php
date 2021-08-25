@@ -63,11 +63,14 @@ class CrudController extends CI_Controller {
 	{
 
 		$this->load->model('Categorie');
-
+		$this->load->model('Produit');
+		
 		$donnee['categ'] = $this->Categorie->selectCategorie();
 
 		$id = $this->input->get('id');
 		$this->session->set_userdata('id',$id);
+
+		$donnee['modif'] = $this->Produit->selectWithId($id);
 
 		$this->load->view('modifProduit',$donnee);
 	}
@@ -93,9 +96,21 @@ class CrudController extends CI_Controller {
 		$this->Produit->updateProduct($des,$prix,$val,$id);
 
 		$donnee['listeProduit'] = $this->Produit->selectAllProduct();
-		
+
 		// $donnee['categorie'] = $this->Categorie->selectNameCategorie();
 
         	$this->load->view('accueil',$donnee);
+	}
+
+	public function supprimerProduit()
+	{
+		$this->load->model('Produit');
+
+		$id = $this->input->get('id');
+
+		$this->Produit->deleteProduct($id);
+
+		$donnee['listeProduit'] = $this->Produit->selectAllProduct();
+    	$this->load->view('accueil',$donnee);
 	}	
 }

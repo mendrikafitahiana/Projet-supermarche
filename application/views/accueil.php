@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<td><?php echo $listeProduit[$i]['prix']; ?></td>
 					
                     <td><a href="../CrudController/modifier?id=<?php echo $listeProduit[$i]['id']; ?>"><span aria-hidden="true">...</span></a></td>
-					<td><a href="#"><span aria-hidden="true">&times;</span></a></td>
+					<td><a href="../CrudController/supprimerProduit?id=<?php echo $listeProduit[$i]['id']; ?>"><span aria-hidden="true">&times;</span></a></td>
 			</tr>
 			<?php }?>
 		</tbody>
