@@ -19,4 +19,12 @@ class Produit extends CI_Model{
 		$sql = sprintf($sql,$this->db->escape($designation),$this->db->escape($prix),$this->db->escape($idCate),$this->db->escape($id));
 		$query = $this->db->query($sql);
 	}
+
+	public function insertProduct($designation,$prix,$idCate){
+
+		$sql = "insert into produit values(null,%s,%s,%s)";
+		$sql = sprintf($sql,$this->db->escape($designation),$this->db->escape($prix),$this->db->escape($idCate));
+		
+		$query = $this->db->query($sql);
+	}
 }

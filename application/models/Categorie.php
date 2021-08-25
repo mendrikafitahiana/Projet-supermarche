@@ -25,4 +25,17 @@ class Categorie extends CI_Model{
 		}
 		return $cat;
 	}
+
+	public function selectIdCategorie($nom){
+		$sql = "select id from categorie where nom = %s";
+		$sql = sprintf($sql,$this->db->escape($nom));
+
+		$query = $this->db->query($sql);
+
+		$rep = array();
+		foreach ($query->result_array() as $key) {
+			$rep[] = $key;
+		}
+		return $rep;
+	}
 }

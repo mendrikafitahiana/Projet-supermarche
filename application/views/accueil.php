@@ -9,10 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<p>Tafiditra oh!!!</p>
-	<form action="ajout">
-		<input type="submit" value="Ajout produit">
-	</form>
-	<br>
+
+		<form action="../CrudController/ajout">
+			<input type="submit" name="" value="Ajout produit">
+		</form>
+
 	<table border="1">
 		<head>
 			<tr>

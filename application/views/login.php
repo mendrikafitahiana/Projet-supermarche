@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<div class="col-md-12">
         <h3>Login</h3>
-        <form method="post" action="authentification">
+        <form method="post" action="UserController/authentification">
             <p>
             <label for="login">Login</label>
             <input type="text" id="login" name="username">

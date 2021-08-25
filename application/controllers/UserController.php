@@ -52,12 +52,4 @@ class UserController extends CI_Controller {
 	    }
 	}
 
-
-	public function ajout(){
-			$this->load->model('Categorie');
-			$donnee['categ'] = $this->Categorie->selectCategorie();
-			$this->load->view('ajoutProduit',$donnee);
-    }
-
 }
-?>

@@ -5,7 +5,7 @@
 </head>
 <body>
 	<p>Ajouter un produit</p>
-	<form action="#" method="post">
+	<form action="ajoutProduit" method="post">
 		<label for="nom">Designation</label>
 		<input type="text" name="designation" id="nom">
 		<label for="prix">Prix</label>
