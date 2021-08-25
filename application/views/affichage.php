@@ -80,6 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<input type="submit" name="" value="Ajout produit">
 		</form>
 </div><div id="content">
+        <h1><?php echo $nom; ?></h1>
 	<div class="col-4 form-group" id="recherche">
 			    <label for="exampleInputEmail1">Produit</label>
 			    <p><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="keyword" style="border: 1px solid #F2F2F2"></p>

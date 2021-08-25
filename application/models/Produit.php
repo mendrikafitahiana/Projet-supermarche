@@ -47,4 +47,18 @@ class Produit extends CI_Model{
 
 		$query = $this->db->query($sql);
 	}
+
+	public function selectByCategory($nom)
+	{
+		$sql = "select produit.* from produit join categorie on categorie.id=produit.idCate where categorie.nom = %s";
+		$sql = sprintf($sql,$this->db->escape($nom));
+
+		$query = $this->db->query($sql);
+
+		$produit = array();
+		foreach ($query->result_array() as $key) {
+			$produit[] = $key;
+		}
+		return $produit;
+	}
 }

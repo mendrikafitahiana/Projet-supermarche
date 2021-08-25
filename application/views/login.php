@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<div class="col-md-12">
+            <a href="ClientController/redirect">Client</a>
         <h3>Login</h3>
         <form method="post" action="UserController/authentification">
             <p>
