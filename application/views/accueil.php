@@ -66,6 +66,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </style>
 </head>
 <body>
+
+    <p><a href="<?php site_url('Statistique1/index');?>">Statistique</a></p>
     <div id="page">
         <div id="nav1"><nav class="nav d-flex justify-content-between">
       <div class="ab"><a class="p-2 text-muted" href="../ViewController/affParCateg?nom=All">All</a></div>

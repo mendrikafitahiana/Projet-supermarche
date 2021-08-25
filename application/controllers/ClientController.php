@@ -21,6 +21,40 @@ class ClientController extends CI_Controller {
 
 	public function redirect(){
 
-		$this->load->view('accueilClient');
+		$this->load->model('Caisse');
+		$donnee['caisse'] = $this->Caisse->selectAllCaisse();
+
+		$this->load->view('accueilClient',$donnee);
+	}
+
+	public function choixCaisse(){
+
+		$this->load->helper('assets');
+
+
+		$this->load->model('Produit');
+
+		$caisse = $this->input->post('caisse');
+		$this->session->set_userdata('caisse',$caisse);
+		$donnee['c'] = $this->session->userdata('caisse');
+
+		$donnee['produits'] = $this->Produit->selectAllProduct();
+
+		for($i=0; $i<count($donnee['produits']); $i++){
+
+			// $val = $donnee['produits'][$i]['id'];
+			
+			$donnee['img'] = $this->Produit->selectImg($donnee['produits'][$i]['id']);
+
+
+			for($ii=0; $ii<count($donnee['img']); $ii++){
+
+				$donnee['img'] = $donnee['img'][$ii]['nom'];
+
+			}
+			
+		}
+
+		$this->load->view('listeProduit',$donnee);
 	}
 }

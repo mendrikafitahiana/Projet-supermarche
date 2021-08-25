@@ -96,3 +96,23 @@ insert into caisse values(null,'caisse 1'),(null,'caisse 2'),(null,'caisse 3');
 
 insert into utilisateur values(null,'mendrika','mendrika@gmail.com','123456');
 insert into utilisateur values(null,'sarobidy','sarobidy@gmail.com','123456');
+
+insert into image values(null,1,'tomate.jpg'),
+(null,2,'haricot vert.jpg'),
+(null,3,'mortadelle.jpg'),
+(null,4,'pain.jpg'),
+(null,5,'pomme.jpg'),
+(null,6,'stylo.jpg'),
+(null,7,'cahier.jpg'),
+(null,8,'gomme.jpg'),
+(null,9,'classeur.jpg'),
+(null,10,'bloc note.jpg'),
+(null,11,'ceinture.jpg'),
+(null,12,'collier.jpg'),
+(null,13,'lunettes.jpg'),
+(null,14,'souris.jpg'),
+(null,15,'cable.jpg'),
+(null,17,'bague.jpg'),
+(null,18,'montre.jpg')
+
+

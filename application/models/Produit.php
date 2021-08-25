@@ -61,4 +61,39 @@ class Produit extends CI_Model{
 		}
 		return $produit;
 	}
+
+	public function selectImg($id){
+
+		$sql = "select nom from image where idProd = %s";
+		$sql = sprintf($sql,$this->db->escape($id));
+
+		$query = $this->db->query($sql);
+
+		$img = array();
+		foreach ($query->result_array() as $key) {
+			$img[] = $key;
+		}
+		return $img;
+	}
+
+	function select(){
+		$sql = "select * from produit order by id asc";
+		$query = $this->db->query($sql);
+		$produit = array();
+		foreach ($query->result_array() as $key) {
+		$produit[] = $key;
+		}
+		return $produit;
+		 }
+		 function selectOne($id){
+			  $sql = "select * from produit where id = %s ";
+			   $sql = sprintf($sql, $this->db->escape($id));
+			 $query = $this->db->query($sql);
+	   
+		$produit = array();
+		foreach ($query->result_array() as $key) {
+		$produit[] = $key;
+		}
+		return $produit;
+		 }
 }

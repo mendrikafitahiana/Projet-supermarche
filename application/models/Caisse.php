@@ -1,16 +1,26 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-class Produit extends CI_Model{
+class Caisse extends CI_Model{
 
 	public function selectAllCaisse(){
 
 		$sql = "select * from caisse";
 		$query = $this->db->query($sql);
-		
-		$produit = array();
+
+		$caisse = array();
 		foreach ($query->result_array() as $key) {
-			$produit[] = $key;
+			$caisse[] = $key;
 		}
-		return $produit;
+		return $caisse;
 	}
+
+	function select(){
+		$sql = "select * from caisse";
+		$query = $this->db->query($sql);
+		$caisse = array();
+		foreach ($query->result_array() as $key) {
+		$caisse[] = $key;
+		}
+		return $caisse;
+		 }
 }
