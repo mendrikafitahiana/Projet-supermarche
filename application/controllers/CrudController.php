@@ -50,6 +50,12 @@ class CrudController extends CI_Controller {
 		$donnee['categorie'] = $this->Categorie->selectNameCategorie();
 
         	$this->load->view('accueil',$donnee);
-		
+
+	}
+
+	public function modifierProduit()
+	{
+		$id = $this->input->get('id');
+		echo "ghtry ".$id;
 	}	
 }
