@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     } 
 
                     #recherche {
-                            border: 1px solid #F2F2F2;
+                             
                             margin: 10%;
                     }
         </style>
@@ -80,35 +80,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<input type="submit" name="" value="Ajout produit">
 		</form>
 </div><div id="content">
-				<div class="col-4 form-group" id="recherche">
-    <label for="exampleInputEmail1">Produit</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="keyword" style="border: 1px solid #F2F2F2">
-    <small id="emailHelp" class="form-text text-muted">Recherche dans la liste.</small>
-	
+	<div class="col-4 form-group" id="recherche">
+			    <label for="exampleInputEmail1">Produit</label>
+			    <p><input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="keyword" style="border: 1px solid #F2F2F2"></p>
+			    <small id="emailHelp" class="form-text text-muted">Recherche dans la liste.</small>
+				
 </div>
-	<table border="1" style="border-spacing: 0;width: 90%;height: 100%">
+	<table border="1" style="border-spacing: 0;width: 80%;height: 100%">
 		<thead>
 			<tr>
 				<th>Designation</th>
 				<th>Prix(Ar)</th>
-				<th>Categorie</th>
+				
 				<th colspan="2">Modifications</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="myTable">
             <?php for ($i=0; $i < count($listeProduit) ; $i++) { ?>
-            <?php for ($i=0; $i < count($categorie) ; $i++) { ?>
 
 			<tr>
-					<td><?php echo $listeProduit[$i]['designation']; ?></td>
+					<td scope="row"><?php echo $listeProduit[$i]['designation']; ?></td>
 					<td><?php echo $listeProduit[$i]['prix']; ?></td>
-					<td><?php echo $categorie[$i]['nom']; ?></td>
-                    <td><a href="../CrudController/modifierProduit?id=<?php echo $listeProduit[$i]['id']; ?>"><span aria-hidden="true">...</span></a></td>
+					
+                    <td><a href="../CrudController/modifier?id=<?php echo $listeProduit[$i]['id']; ?>"><span aria-hidden="true">...</span></a></td>
 					<td><a href="#"><span aria-hidden="true">&times;</span></a></td>
 			</tr>
-			<?php }}?>
+			<?php }?>
 		</tbody>
 	</table></div>
         </div>
+        <script>
+        	$(document).ready(function(){
+  $("#exampleInputEmail1").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+        </script>
 </body>
 </html>

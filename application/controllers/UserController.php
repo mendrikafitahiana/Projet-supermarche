@@ -38,7 +38,18 @@ class UserController extends CI_Controller {
 
         $donnee['validation'] = $this->Utilisateur->getLogin($username,$mdp);
 		$donnee['listeProduit'] = $this->Produit->selectAllProduct();
-		$donnee['categorie'] = $this->Categorie->selectNameCategorie();
+
+		// $val = array();
+		// $tabCate = array();
+
+		for($i=0; $i<count($donnee['listeProduit']); $i++){
+
+			// $data['idCate'] = $donnee['listeProduit'][$i]['idCate'];
+
+			// $donnee['categorie'] = $this->Categorie->selectNameCategorie($donnee['listeProduit'][$i]['idCate']);
+
+		}
+
 
         if($donnee['validation'] == 1){
 

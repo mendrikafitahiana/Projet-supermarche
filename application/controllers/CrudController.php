@@ -47,15 +47,55 @@ class CrudController extends CI_Controller {
 		$this->Produit->insertProduct($des,$prix,$val);
 
 		$donnee['listeProduit'] = $this->Produit->selectAllProduct();
-		$donnee['categorie'] = $this->Categorie->selectNameCategorie();
+
+		for($i=0; $i<count($donnee['listeProduit']); $i++){
+
+			$val1 = $donnee['listeProduit'][$i]['id'];
+		}
+
+		// $donnee['categorie'] = $this->Categorie->selectNameCategorie($val1);
 
         	$this->load->view('accueil',$donnee);
 
 	}
 
+	public function modifier()
+	{
+
+		$this->load->model('Categorie');
+
+		$donnee['categ'] = $this->Categorie->selectCategorie();
+
+		$id = $this->input->get('id');
+		$this->session->set_userdata('id',$id);
+
+		$this->load->view('modifProduit',$donnee);
+	}
+
 	public function modifierProduit()
 	{
-		$id = $this->input->get('id');
-		echo "ghtry ".$id;
+		$this->load->model('Categorie');
+		$this->load->model('Produit');
+
+		$des = $this->input->post('designation');
+		$prix = $this->input->post('prix');
+		$categorie = $this->input->post('categorie');
+
+		$id = $this->session->userdata('id');
+
+		$donnee['categ'] = $this->Categorie->selectIdCategorie($categorie);
+
+		for($i=0; $i<count($donnee['categ']); $i++){
+
+			$val = $donnee['categ'][$i]['id'];
+		}
+
+		$this->Produit->updateProduct($des,$prix,$val,$id);
+
+		$donnee['listeProduit'] = $this->Produit->selectAllProduct();
+		
+		// $donnee['categorie'] = $this->Categorie->selectNameCategorie();
+
+        	$this->load->view('accueil',$donnee);
 	}	
 }

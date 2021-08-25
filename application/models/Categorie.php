@@ -2,18 +2,18 @@
 
 class Categorie extends CI_Model{
 
-	public function selectNameCategorie(){
-		$sql = " select categorie.nom from categorie join produit on produit.idCate = categorie.id";
-		// $sql = sprintf($sql,$this->db->escape($id));
+	// public function selectNameCategorie($id){
+	// 	$sql = " select nom from categorie where id = %s";
+	// 	$sql = sprintf($sql,$this->db->escape($id));
 
-		$query = $this->db->query($sql);
+	// 	$query = $this->db->query($sql);
 
-		$rep = array();
-		foreach ($query->result_array() as $key) {
-			$rep[] = $key;
-		}
-		return $rep;
-	}
+	// 	$rep = array();
+	// 	foreach ($query->result_array() as $key) {
+	// 		$rep[] = $key;
+	// 	}
+	// 	return $rep;
+	// }
 
 	public function selectCategorie(){
 		$sql = "select * from categorie";
